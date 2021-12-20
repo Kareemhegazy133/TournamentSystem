@@ -10,24 +10,19 @@ using System.Windows.Forms;
 
 namespace SystemUI
 {
-    public partial class TournamentViewerForm : Form
+    public partial class CreatePrizeForm : Form
     {
-        public TournamentViewerForm()
+        public CreatePrizeForm()
         {
             InitializeComponent();
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void placeNumberLabel_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void placeNumberValue_TextChanged(object sender, EventArgs e)
         {
 
         }
