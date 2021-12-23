@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SystemLibrary;
+using SystemLibrary.DataAccess;
+using SystemLibrary.Models;
 
 namespace SystemUI
 {
@@ -34,10 +36,7 @@ namespace SystemUI
             {
                 PrizeModel model = new PrizeModel(placeNameValue.Text, placeNumberValue.Text, prizeAmountValue.Text, prizePercentageValue.Text);
 
-                foreach(IDataConnection db in GlobalConfig.Connections)
-                {
-                    db.CreatePrize(model);
-                }
+                GlobalConfig.Connection.CreatePrize(model);
 
                 placeNameValue.Text = "";
                 placeNumberValue.Text = "";

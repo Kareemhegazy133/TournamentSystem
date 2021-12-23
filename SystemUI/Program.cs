@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SystemLibrary;
 
 namespace SystemUI
 {
@@ -18,7 +19,7 @@ namespace SystemUI
             Application.SetCompatibleTextRenderingDefault(false);
 
             //Initializes the Connections
-            SystemLibrary.GlobalConfig.InitializeConnections(true, true);
+            SystemLibrary.GlobalConfig.InitializeConnections(DatabaseType.Sql);
             Application.Run(new CreatePrizeForm());
             //Application.Run(new TournamentDashboardForm());
         }

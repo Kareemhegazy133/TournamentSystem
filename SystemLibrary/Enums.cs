@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace SystemLibrary
 {
-    public interface IDataConnection
-    {
-        PrizeModel CreatePrize(PrizeModel model);
+    public enum DatabaseType { 
+        Sql,
+        TextFile
     }
 }

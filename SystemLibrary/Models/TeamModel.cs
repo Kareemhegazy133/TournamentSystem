@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SystemLibrary
+namespace SystemLibrary.Models
 {
     /// <summary>
     /// Represents a team in the tournament.
