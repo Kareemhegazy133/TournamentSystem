@@ -19,7 +19,7 @@ namespace SystemUI
             Application.SetCompatibleTextRenderingDefault(false);
 
             //Initializes the Connections
-            SystemLibrary.GlobalConfig.InitializeConnections(DatabaseType.Sql);
+            SystemLibrary.GlobalConfig.InitializeConnections(DatabaseType.TextFile);
             Application.Run(new CreatePrizeForm());
             //Application.Run(new TournamentDashboardForm());
         }
