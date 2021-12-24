@@ -11,6 +11,12 @@ namespace SystemLibrary.Models
     /// </summary>
     public class PlayerModel
     {
+
+        /// <summary>
+        /// The unique indentifier for the player
+        /// </summary>
+        public int Id { get; set; }
+
         /// <summary>
         /// The first name of the player.
         /// </summary>
@@ -27,8 +33,8 @@ namespace SystemLibrary.Models
         public string EmailAddress { get; set; }
 
         /// <summary>
-        /// The discord tag of the player.
+        /// The Cellphone number of the player.
         /// </summary>
-        public string DiscordTag { get; set; }
+        public string CellphoneNumber { get; set; }
     }
 }
