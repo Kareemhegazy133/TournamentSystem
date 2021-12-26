@@ -12,13 +12,18 @@ namespace SystemLibrary.Models
     public class TeamModel
     {
         /// <summary>
-        /// The team members of the team.
+        /// The unique indentifier for the prize
         /// </summary>
-        public List<PlayerModel> TeamMembers { get; set; } = new List<PlayerModel>();
+        public int Id { get; set; }
 
         /// <summary>
         /// The name of the team.
         /// </summary>
         public string TeamName { get; set; }
+
+        /// <summary>
+        /// The team members of the team.
+        /// </summary>
+        public List<PlayerModel> TeamMembers { get; set; } = new List<PlayerModel>();
     }
 }

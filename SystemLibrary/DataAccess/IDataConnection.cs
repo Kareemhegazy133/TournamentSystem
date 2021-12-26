@@ -11,7 +11,7 @@ namespace SystemLibrary.DataAccess
     {
         PrizeModel CreatePrize(PrizeModel model);
         PlayerModel CreatePlayer(PlayerModel model);
-
+        TeamModel CreateTeam(TeamModel model);
         List<PlayerModel> GetPlayers_All();
     }
 }
