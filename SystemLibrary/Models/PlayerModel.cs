@@ -36,5 +36,16 @@ namespace SystemLibrary.Models
         /// The Cellphone number of the player.
         /// </summary>
         public string CellphoneNumber { get; set; }
+
+        /// <summary>
+        /// The Fullname of the player.
+        /// </summary>
+        public string FullName
+        {
+            get
+            {
+                return $"{ FirstName } { LastName }";
+            }
+        }
     }
 }

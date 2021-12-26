@@ -11,9 +11,10 @@ namespace SystemLibrary.DataAccess
 {
     public class SQLConnector : IDataConnection
     {
-        public PlayerModel CreatePerson(PlayerModel model)
+        private const string db = "Tournaments";
+        public PlayerModel CreatePlayer(PlayerModel model)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnectionString("Tournaments")))
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnectionString(db)))
             {
                 var p = new DynamicParameters();
                 p.Add("@FirstName", model.FirstName);
@@ -38,7 +39,7 @@ namespace SystemLibrary.DataAccess
         /// <returns> The prize information, including the unique identifier.</returns>
         public PrizeModel CreatePrize(PrizeModel model)
         {
-            using(IDbConnection connection =  new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnectionString("Tournaments")))
+            using(IDbConnection connection =  new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnectionString(db)))
             {
                 var p = new DynamicParameters();
                 p.Add("@PlaceNumber", model.PlaceNumber);
@@ -53,6 +54,18 @@ namespace SystemLibrary.DataAccess
 
                 return model;
             }
+        }
+
+        public List<PlayerModel> GetPlayers_All()
+        {
+            List<PlayerModel> output;
+
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnectionString(db)))
+            {
+                output = connection.Query<PlayerModel>("dbo.spPeople_GetAll").ToList();
+            }
+
+            return output;
         }
     }
 }

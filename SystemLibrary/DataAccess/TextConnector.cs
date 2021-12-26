@@ -13,7 +13,7 @@ namespace SystemLibrary.DataAccess
         private const string PrizesFile = "PrizeModels.csv";
         private const string PeopleFile = "PeopleModels.csv";
 
-        public PlayerModel CreatePerson(PlayerModel model)
+        public PlayerModel CreatePlayer(PlayerModel model)
         {
             List<PlayerModel> people = PeopleFile.FullFilePath().LoadFile().ConvertToPlayerModels();
 
@@ -57,6 +57,11 @@ namespace SystemLibrary.DataAccess
             prizes.SaveToPrizeFile(PrizesFile);
 
             return model;
+        }
+
+        public List<PlayerModel> GetPlayers_All()
+        {
+            return PeopleFile.FullFilePath().LoadFile().ConvertToPlayerModels();
         }
     }
 }

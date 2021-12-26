@@ -84,7 +84,7 @@ namespace SystemLibrary.DataAccess.TextHelpers
 
             foreach (PlayerModel p in models)
             {
-                lines.Add($"{ p.Id }, { p.FirstName }, { p.LastName }, { p.EmailAddress }, { p.CellphoneNumber }");
+                lines.Add($"{ p.Id },{ p.FirstName },{ p.LastName },{ p.EmailAddress },{ p.CellphoneNumber }");
             }
 
             File.WriteAllLines(fileName.FullFilePath(), lines);

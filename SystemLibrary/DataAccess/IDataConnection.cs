@@ -10,6 +10,8 @@ namespace SystemLibrary.DataAccess
     public interface IDataConnection
     {
         PrizeModel CreatePrize(PrizeModel model);
-        PlayerModel CreatePerson(PlayerModel model);
+        PlayerModel CreatePlayer(PlayerModel model);
+
+        List<PlayerModel> GetPlayers_All();
     }
 }
