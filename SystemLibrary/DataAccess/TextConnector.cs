@@ -84,5 +84,10 @@ namespace SystemLibrary.DataAccess
 
             return model;
         }
+
+        public List<TeamModel> GetTeams_All()
+        {
+            return TeamFile.FullFilePath().LoadFile().ConvertToTeamModels(PeopleFile);
+        }
     }
 }

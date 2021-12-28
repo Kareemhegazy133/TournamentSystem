@@ -16,10 +16,12 @@ namespace SystemUI
     {
         private List<PlayerModel> availableTeamMembers = GlobalConfig.Connection.GetPlayers_All();
         private List<PlayerModel> selectedTeamMembers = new List<PlayerModel>();
-
-        public CreateTeamForm()
+        ITeamRequestor callingForm;
+        public CreateTeamForm(ITeamRequestor caller)
         {
             InitializeComponent();
+
+            callingForm = caller;
 
             //CreateSampleData();
 
@@ -145,9 +147,16 @@ namespace SystemUI
             t.TeamName = teamNameValue.Text;
             t.TeamMembers = selectedTeamMembers;
 
-            t = GlobalConfig.Connection.CreateTeam(t);
+            GlobalConfig.Connection.CreateTeam(t);
 
-            // TODO - If we aren't closing this form after creation, reset the form
+            callingForm.TeamComplete(t);
+
+            this.Close();
+        }
+
+        private void CreateTeamForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
