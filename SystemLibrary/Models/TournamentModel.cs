@@ -12,6 +12,11 @@ namespace SystemLibrary.Models
     public class TournamentModel
     {
         /// <summary>
+        /// The unique indentifier for the prize
+        /// </summary>
+        public int Id { get; set; }
+
+        /// <summary>
         /// The name of the tournament.
         /// </summary>
         public string TournamentName { get; set; }

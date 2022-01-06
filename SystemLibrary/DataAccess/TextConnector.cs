@@ -13,6 +13,9 @@ namespace SystemLibrary.DataAccess
         private const string PrizesFile = "PrizeModels.csv";
         private const string PeopleFile = "PeopleModels.csv";
         private const string TeamFile = "TeamModels.csv";
+        private const string TournamentFile = "TournamentModels.csv";
+        private const string MatchupFile = "MatchupModels.csv";
+        private const string MatchupEntryFile = "MatchupEntryModels.csv";
 
         public PlayerModel CreatePlayer(PlayerModel model)
         {
@@ -88,6 +91,26 @@ namespace SystemLibrary.DataAccess
         public List<TeamModel> GetTeams_All()
         {
             return TeamFile.FullFilePath().LoadFile().ConvertToTeamModels(PeopleFile);
+        }
+
+        public void CreateTournament(TournamentModel model)
+        {
+            List<TournamentModel> tournaments = TournamentFile.FullFilePath().LoadFile().ConvertToTournamentModels(TeamFile, PeopleFile, PrizesFile);
+
+            int currentId = 1;
+
+            if (tournaments.Count > 0)
+            {
+                currentId = tournaments.OrderByDescending(x => x.Id).First().Id + 1;
+            }
+
+            model.Id = currentId;
+
+            model.SaveRoundsToFile(MatchupFile, MatchupEntryFile);
+
+            tournaments.Add(model);
+
+            tournaments.SaveToTournamentFile(TournamentFile);
         }
     }
 }
