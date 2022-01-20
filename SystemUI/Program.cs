@@ -19,9 +19,9 @@ namespace SystemUI
             Application.SetCompatibleTextRenderingDefault(false);
 
             //Initializes the Connections
-            SystemLibrary.GlobalConfig.InitializeConnections(DatabaseType.TextFile);
-            Application.Run(new CreateTournamentForm());
-            //Application.Run(new TournamentDashboardForm());
+            SystemLibrary.GlobalConfig.InitializeConnections(DatabaseType.Sql);
+            
+            Application.Run(new TournamentDashboardForm());
         }
     }
 }

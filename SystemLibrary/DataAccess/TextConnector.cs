@@ -112,5 +112,10 @@ namespace SystemLibrary.DataAccess
 
             tournaments.SaveToTournamentFile(TournamentFile);
         }
+
+        public List<TournamentModel> GetTournaments_All()
+        {
+            return TournamentFile.FullFilePath().LoadFile().ConvertToTournamentModels(TeamFile, PeopleFile, PrizesFile);
+        }
     }
 }

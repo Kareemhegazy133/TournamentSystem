@@ -15,5 +15,6 @@ namespace SystemLibrary.DataAccess
         void CreateTournament(TournamentModel model);
         List<TeamModel> GetTeams_All();
         List<PlayerModel> GetPlayers_All();
+        List<TournamentModel> GetTournaments_All();
     }
 }
